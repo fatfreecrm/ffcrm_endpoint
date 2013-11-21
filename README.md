@@ -28,6 +28,7 @@ Add ```ffcrm_endpoint``` to your Fat Free CRM application Gemfile and run bundle
 
     #
     # This is where you write code to turn the data into Fat Free CRM objects.
+    # You have access to request and params here
     def process
     end
 
