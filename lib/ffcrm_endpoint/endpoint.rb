@@ -2,6 +2,7 @@ module FfcrmEndpoint
 
   class EndpointNotDefinedError < StandardError; end
   class EndpointNoActionError < StandardError; end
+  class EndpointDuplicateError < StandardError; end
 
   class Endpoint
 
@@ -19,18 +20,14 @@ module FfcrmEndpoint
     # The main function to process the incoming data.
     # It delegates to the process function in your custom endpoint class.
     def process
-      if klasses.include?(klass_name)
-        klass.new(params).process
-      else
-        raise EndpointNotDefinedError, "To call /endpoints/#{params[:klass_name]} you must define 'class FfcrmEndpoint::#{params[:klass_name].classify} < FfcrmEndpoint::Endpoint'"
-      end
+      klass.new(params).process
     end
 
     #
     # The authentication method is called by the endpoint controller before 'process' is run.
     # 'process' will only be called if authenticate returns true
     def authenticate
-      false
+      klass.new(params).authenticate == true
     end
 
     protected
@@ -44,17 +41,19 @@ module FfcrmEndpoint
     end
 
     #
-    # We derive the name of the endpoint subclass from the action
-    # /endpoints/my_custom_endpoint corresponds to MyCustomEndpoint
+    # klasses are stored as MyPluginName::MyCustomEndpoint
+    # Return first match on "MyCustomEndpoint"
     def klass
-      klass_name.constantize
+      @klass ||= klasses.select{|k| k.to_s.demodulize == klass_name}.compact.first
+      raise EndpointNotDefinedError, "To call /endpoints/#{params[:klass_name]} you must define 'class #{params[:klass_name].classify} < FfcrmEndpoint::Endpoint'" if !@klass.present?
+      @klass
     end
 
     #
     # We derive the name of the endpoint subclass from the action
     # /endpoints/my_custom_endpoint corresponds to MyCustomEndpoint
     def klass_name
-      "FfcrmEndpoint::#{params[:klass_name].classify}"
+      "#{params[:klass_name].classify}"
     end
 
     private
@@ -63,7 +62,12 @@ module FfcrmEndpoint
     # Endpoints must be registered (by subclassing) before they can be called.
     # This ensures actions such as "/endpoints/object" don't result in dangerous calls to the Object class
     def self.inherited(subclass)
-      klasses << subclass.name
+      # handle name duplicates
+      if (duplicates = klasses.select{ |klass| klass.to_s.demodulize == subclass.to_s.demodulize }).any?
+        raise EndpointDuplicateError, "You cannot have endpoints with the same name: #{duplicates.join(', ')}"
+      else
+        klasses << subclass
+      end
     end
 
   end
