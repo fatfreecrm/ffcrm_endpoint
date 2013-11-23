@@ -14,7 +14,7 @@ Please note this is *not* yet production ready code.
 
 Add ```ffcrm_endpoint``` to your Fat Free CRM application Gemfile and run bundle install.
 
-```gem 'ffcrm_endpoint', :github => 'fatfreecrm/ffcrm_endpoint'```
+```gem 'ffcrm_endpoint'```
 
 ## How it works / Setup steps
 
@@ -24,7 +24,7 @@ Add ```ffcrm_endpoint``` to your Fat Free CRM application Gemfile and run bundle
   * Define an ```authenticate``` method which should return true if the request is allowed to proceed.
 
   ```ruby
-  class FfcrmEndpoint::MyCustomEndpoint < FfcrmEndpoint::Endpoint
+  class MyPluginName::MyCustomEndpoint < FfcrmEndpoint::Endpoint
 
     #
     # This is where you write code to turn the data into Fat Free CRM objects.
