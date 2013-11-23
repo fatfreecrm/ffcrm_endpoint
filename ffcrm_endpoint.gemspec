@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.email       = ["steveyken@gmail.com"]
   s.homepage    = "http://www.fatfreecrm.com"
   s.summary     = "Enables Fat Free CRM to receive webhooks"
+  s.licenses    = "MIT-LICENSE"
   s.description = "A framework for quickly writing an endpoint to consume webhooks from other systems."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
