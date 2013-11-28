@@ -18,7 +18,7 @@ module FfcrmEndpoint
     private
 
     def endpoint
-      @endpoint ||= FfcrmEndpoint::Endpoint.new(params)
+      @endpoint ||= FfcrmEndpoint::Endpoint.new(request)
     end
 
   end

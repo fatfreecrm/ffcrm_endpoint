@@ -6,13 +6,14 @@ module FfcrmEndpoint
 
   class Endpoint
 
-    attr_accessor :params
+    attr_accessor :request, :params
     cattr_accessor :klasses do
       []
     end
 
-    def initialize(params)
-      @params = params
+    def initialize(request)
+      @request = request
+      @params = request.params
       raise EndpointNoActionError, "No action defined." unless params[:klass_name].present?
     end
 
@@ -20,14 +21,14 @@ module FfcrmEndpoint
     # The main function to process the incoming data.
     # It delegates to the process function in your custom endpoint class.
     def process
-      klass.new(params).process
+      klass.new(request).process
     end
 
     #
     # The authentication method is called by the endpoint controller before 'process' is run.
     # 'process' will only be called if authenticate returns true
     def authenticate
-      klass.new(params).authenticate == true
+      klass.new(request).authenticate == true
     end
 
     protected
