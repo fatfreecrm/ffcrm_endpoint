@@ -1,0 +1,11 @@
+.title= t(:ffcrm_endpoint_title, default: "Registered Endpoints")
+
+%p
+
+%ul
+  - @endpoints.each do |endpoint|
+    %li
+      %strong= endpoint.to_s
+      at
+      - link = "#{root_url}endpoints/#{endpoint.to_s.demodulize.underscore}"
+      = link_to(link, link)
