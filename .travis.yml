@@ -5,5 +5,8 @@ rvm:
 
 bundler_args: --path=vendor/bundle --without heroku
 
+before_script:
+  - sh -c "psql -c 'create database ffcrm_endpoint_test;' -U postgres"
+
 # Run specs
 script: "bundle exec rake"
