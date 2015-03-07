@@ -1,25 +1,25 @@
 require 'spec_helper'
 
-describe EndpointsController do
+RSpec.describe FfcrmEndpoint::EndpointsController, type: :controller do
 
-  let(:endpoint) { mock(FfcrmEndpoint::Endpoint) }
+  let(:endpoint) { double(FfcrmEndpoint::Endpoint) }
 
   describe "consume" do
 
     it "should call process when authenticate returns true" do
-      endpoint.should_receive(:process)
-      endpoint.should_receive(:authenticate).and_return(true)
-      controller.stub!(:endpoint).and_return(endpoint)
+      expect(endpoint).to receive(:process)
+      expect(endpoint).to receive(:authenticate).and_return(true)
+      allow(controller).to receive(:endpoint).and_return(endpoint)
       get :consume, klass_name: :my_custom_endpoint, format: :js
       expect(response.status).to eql(201)
     end
 
     it "should not call process when authenticate returns false" do
-      endpoint.should_not_receive(:process)
-      endpoint.should_receive(:authenticate).and_return(false)
-      controller.stub!(:endpoint).and_return(endpoint)
+      expect(endpoint).not_to receive(:process)
+      expect(endpoint).to receive(:authenticate).and_return(false)
+      expect(controller).to receive(:endpoint).and_return(endpoint)
       get :consume, klass_name: :my_custom_endpoint, format: :js
-      #~ expect(response.status).to eql(401)
+      expect(response.status).to eql(401)
     end
 
   end
