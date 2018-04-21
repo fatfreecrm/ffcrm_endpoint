@@ -10,7 +10,7 @@ RSpec.describe FfcrmEndpoint::EndpointsController, type: :controller do
       expect(endpoint).to receive(:process)
       expect(endpoint).to receive(:authenticate).and_return(true)
       allow(controller).to receive(:endpoint).and_return(endpoint)
-      get :consume, klass_name: :my_custom_endpoint, format: :js
+      get :consume, params: { klass_name: :my_custom_endpoint, format: :js }
       expect(response.status).to eql(201)
     end
 
@@ -18,7 +18,7 @@ RSpec.describe FfcrmEndpoint::EndpointsController, type: :controller do
       expect(endpoint).not_to receive(:process)
       expect(endpoint).to receive(:authenticate).and_return(false)
       expect(controller).to receive(:endpoint).and_return(endpoint)
-      get :consume, klass_name: :my_custom_endpoint, format: :js
+      get :consume, params: { klass_name: :my_custom_endpoint, format: :js }
       expect(response.status).to eql(401)
     end
 

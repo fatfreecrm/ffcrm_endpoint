@@ -8,5 +8,5 @@ gemspec
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 
-gem "fat_free_crm", github: "fatfreecrm/fat_free_crm", branch: "rails4"
+gem "fat_free_crm", github: "fatfreecrm/fat_free_crm"
 gem "rails"
