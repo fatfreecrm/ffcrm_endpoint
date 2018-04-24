@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/fatfreecrm/fat_free_crm.git
-  revision: 334b3eef46066865623287a405d7997cb1fd94d3
+  revision: d05eea626f8d1da9965688876edda31524a3fc13
   specs:
     fat_free_crm (0.19.0)
       activemodel-serializers-xml
@@ -200,7 +200,7 @@ GEM
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
     public_suffix (3.0.2)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
     rails (5.1.6)
