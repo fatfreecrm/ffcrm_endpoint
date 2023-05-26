@@ -4,9 +4,12 @@ module FfcrmEndpoint
     config.to_prepare do
       require "ffcrm_endpoint/endpoint"
 
-      tab_urls = FatFreeCRM::Tabs.admin.map{|tab| tab[:url]}.map{|url| url[:controller]}
-      unless tab_urls.include? 'admin/ffcrm_endpoint'
-        FatFreeCRM::Tabs.admin << { url: { controller: "admin/ffcrm_endpoint" }, text: "Endpoints", icon: 'fa-long-arrow-down'}
+      ActiveSupport.on_load(:fat_free_crm_view_factory) do
+        tab_urls = ::FatFreeCRM::Tabs.admin.map{|tab| tab[:url]}.map{|url| url[:controller]}
+        unless tab_urls.include? 'admin/ffcrm_endpoint'
+          tab_urls = tab_urls.dup << { url: { controller: "admin/ffcrm_endpoint" }, text: "Endpoints", icon: 'fa-long-arrow-down'}
+          ::FatFreeCRM::Tabs.admin = tab_urls
+        end
       end
 
     end
