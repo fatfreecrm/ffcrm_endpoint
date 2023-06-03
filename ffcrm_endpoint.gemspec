@@ -1,4 +1,4 @@
-$:.push File.expand_path("../lib", __FILE__)
+$:.push File.expand_path("lib", __dir__)
 
 require "ffcrm_endpoint/version"
 
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.licenses    = "MIT-LICENSE"
   s.description = "A framework for quickly writing an endpoint to consume webhooks from other systems."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails"

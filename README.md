@@ -10,6 +10,11 @@ This plugin is aimed at Fat Free CRM developers who want to quickly integrate in
 
 Please note this is *not* yet production ready code.
 
+## Branches
+
+* master (fat_free_crm 0.20.1 / Rails 6.0)
+* rails3 (fat_free_crm 0.13.6 / Rails 3.2)
+
 ## Installation
 
 Add ```ffcrm_endpoint``` to your Fat Free CRM application Gemfile and run bundle install.
