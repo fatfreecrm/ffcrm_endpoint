@@ -1,24 +1,15 @@
-default: &default
-  adapter: postgresql
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+development: &development
   host: localhost
+  adapter: postgresql
+  database: ffcrm_endpoint_development
   username: postgres
   password: postgres
-
-development:
-  <<: *default
-  database: ffcrm_endpoint_development
+  schema_search_path: public
+  min_messages: warning
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
+  <<: *development
   database: ffcrm_endpoint_test
-
-production:
-  <<: *default
-  database: ffcrm_endpoint_production

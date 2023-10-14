@@ -1,3 +1,5 @@
+require 'fat_free_crm'
+
 module FfcrmEndpoint
   class Engine < ::Rails::Engine
 
