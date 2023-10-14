@@ -59,11 +59,6 @@ Also note, that you are responsible for sanitizing your data... just as you woul
 
 The ```endpoints``` controller delegates authentication to the custom class. This is to allow you to define your own security. A common practice is to use a token that is shared between your external service and Fat Free CRM. Implementation is left to the developer. Just be sure to define the ```authenticate``` method.
 
-## TODO list
-
-* More tests
-* Consolidate how to pass in data
-
 ## Bug Fixes / Contributions
 
 Please open issues in the GitHub issue tracker and use pull requests for new features.
@@ -72,6 +67,3 @@ Please open issues in the GitHub issue tracker and use pull requests for new fea
 
 MIT (see LICENSE for more details)
 
-## Author
-
-Steve Kenworthy (steveyken@gmail.com)
