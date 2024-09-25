@@ -5,9 +5,9 @@ module FfcrmEndpoint
 
       require "ffcrm_endpoint/endpoint"
 
-      tab_urls = FatFreeCRM::Tabs.admin.map{|tab| tab[:url]}.map{|url| url[:controller]}
+      tab_urls = FatFreeCrm::Tabs.admin.map{|tab| tab[:url]}.map{|url| url[:controller]}
       unless tab_urls.include? 'admin/ffcrm_endpoint'
-        FatFreeCRM::Tabs.admin << {url: { controller: "admin/ffcrm_endpoint" }, text: "Endpoints", icon: 'fa-long-arrow-down'}
+        FatFreeCrm::Tabs.admin << {url: { controller: "admin/ffcrm_endpoint" }, text: "Endpoints", icon: 'fa-long-arrow-down'}
       end
 
     end
