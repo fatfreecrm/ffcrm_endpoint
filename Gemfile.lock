@@ -147,11 +147,11 @@ GEM
     email_reply_parser_ffcrm (0.5.0)
     erb (5.0.2)
     erubi (1.13.1)
-    factory_bot (6.5.0)
-      activesupport (>= 5.0.0)
-    factory_bot_rails (6.4.4)
+    factory_bot (6.5.4)
+      activesupport (>= 6.1.0)
+    factory_bot_rails (6.5.0)
       factory_bot (~> 6.5)
-      railties (>= 5.0.0)
+      railties (>= 6.1.0)
     fat_free_crm (0.24.1)
       activemodel-serializers-xml
       acts-as-taggable-on (>= 3.4.3)
@@ -338,14 +338,14 @@ GEM
     rspec-mocks (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-rails (5.1.2)
-      actionpack (>= 5.2)
-      activesupport (>= 5.2)
-      railties (>= 5.2)
-      rspec-core (~> 3.10)
-      rspec-expectations (~> 3.10)
-      rspec-mocks (~> 3.10)
-      rspec-support (~> 3.10)
+    rspec-rails (7.1.1)
+      actionpack (>= 7.0)
+      activesupport (>= 7.0)
+      railties (>= 7.0)
+      rspec-core (~> 3.13)
+      rspec-expectations (~> 3.13)
+      rspec-mocks (~> 3.13)
+      rspec-support (~> 3.13)
     rspec-support (3.13.4)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
@@ -401,6 +401,7 @@ DEPENDENCIES
   ransack_ui
   responds_to_parent!
   rspec-rails
+  sprockets (~> 4.0)
 
 BUNDLED WITH
    2.4.20
