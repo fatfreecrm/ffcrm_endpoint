@@ -2,6 +2,7 @@ $:.push File.expand_path("lib", __dir__)
 
 require "ffcrm_endpoint/version"
 
+
 Gem::Specification.new do |s|
   s.name        = "ffcrm_endpoint"
   s.version     = FfcrmEndpoint::VERSION
