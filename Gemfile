@@ -11,3 +11,8 @@ group :development, :test do
   gem "factory_bot_rails"
   gem "byebug" unless ENV["CI"]
 end
+gem "mutex_m"
+gem "bigdecimal"
+gem "ransack_ui"
+gem "csv"
+gem "observer"
