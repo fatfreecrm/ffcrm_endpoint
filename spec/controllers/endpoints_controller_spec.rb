@@ -24,14 +24,18 @@ RSpec.describe FfcrmEndpoint::EndpointsController, type: :controller do
   end
 
   describe 'consume' do
-    it 'should call process when authenticate returns true' do
-      post :consume, params: { klass_name: :authenticating_endpoint, format: :js }
-      expect(response.status).to eql(201)
+    context "authenticated" do
+      it 'call processes the request' do
+        get :consume, params: { klass_name: :authenticating_endpoint, format: :js }
+        expect(response.status).to eql(201)
+      end
     end
 
-    it 'should not call process when authenticate returns false' do
-      post :consume, params: { klass_name: :non_authenticating_endpoint, format: :js }
-      expect(response.status).to eql(401)
+    context "unauthenticated" do
+      it 'rejects the request' do
+        get :consume, params: { klass_name: :non_authenticating_endpoint, format: :js }
+        expect(response.status).to eql(401)
+      end
     end
   end
 end
