@@ -2,9 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "fat_free_crm", "~> 0.24.1"
-gem 'responds_to_parent', git: 'https://github.com/CloCkWeRX/responds_to_parent.git', branch: 'master' # Temporarily pointed at git until https://github.com/zendesk/responds_to_parent/pull/7 is released
-gem 'acts_as_commentable', git: 'https://github.com/fatfreecrm/acts_as_commentable.git', tag: "7.1.0"
+gem "fat_free_crm", "~> 0.24.2"
 gem 'sprockets', '~> 4.0'
 
 group :development, :test do
