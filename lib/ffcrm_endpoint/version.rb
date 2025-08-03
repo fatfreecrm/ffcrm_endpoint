@@ -1,3 +1,3 @@
 module FfcrmEndpoint
-  VERSION = "0.22.0"
+  VERSION = "0.24.3"
 end
