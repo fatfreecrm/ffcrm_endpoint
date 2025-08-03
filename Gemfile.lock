@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ffcrm_endpoint (0.22.0)
+    ffcrm_endpoint (0.24.3)
       fat_free_crm
       rails
 
