@@ -9,11 +9,13 @@ Gem::Specification.new do |s|
   s.email       = ["steveyken@gmail.com"]
   s.homepage    = "http://www.fatfreecrm.com"
   s.summary     = "Enables Fat Free CRM to receive webhooks"
-  s.licenses    = "MIT-LICENSE"
+  s.licenses    = "MIT"
   s.description = "A framework for quickly writing an endpoint to consume webhooks from other systems."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
+
+  s.required_ruby_version = ">= 3.0"
 
   s.add_dependency "rails"
   s.add_dependency "fat_free_crm"
