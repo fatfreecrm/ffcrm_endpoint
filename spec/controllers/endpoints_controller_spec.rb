@@ -19,7 +19,7 @@ RSpec.describe FfcrmEndpoint::EndpointsController, type: :controller do
     end
 
     def process
-      raise "Should not be called"
+      raise 'Should not be called'
     end
   end
 
