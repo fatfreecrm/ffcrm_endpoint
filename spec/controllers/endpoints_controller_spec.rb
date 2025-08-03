@@ -24,14 +24,14 @@ RSpec.describe FfcrmEndpoint::EndpointsController, type: :controller do
   end
 
   describe 'consume' do
-    context "authenticated" do
+    context 'authenticated' do
       it 'call processes the request' do
         get :consume, params: { klass_name: :authenticating_endpoint, format: :js }
         expect(response.status).to eql(201)
       end
     end
 
-    context "unauthenticated" do
+    context 'unauthenticated' do
       it 'rejects the request' do
         get :consume, params: { klass_name: :non_authenticating_endpoint, format: :js }
         expect(response.status).to eql(401)
