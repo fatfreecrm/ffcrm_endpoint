@@ -75,5 +75,4 @@ module FfcrmEndpoint
 
   # Use this hook to load your endpoint subclasses
   ActiveSupport.run_load_hooks(:ffcrm_endpoint, self)
-
 end
