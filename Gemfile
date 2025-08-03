@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gemspec
 
-gem "fat_free_crm", git: 'https://github.com/fatfreecrm/fat_free_crm.git', branch: 'v0.24.x'
+gem "fat_free_crm", '~> 0.24.0'
 gem 'sprockets', '~> 4.0'
 
 group :development, :test do
