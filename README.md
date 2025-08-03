@@ -12,7 +12,7 @@ Please note this is *not* yet production ready code.
 
 ## Branches
 
-* master (fat_free_crm 0.22.0 / Rails 7)
+* master (fat_free_crm 0.24.3 / Rails 7.1)
 * rails3 (fat_free_crm 0.13.6 / Rails 3.2)
 
 ## Installation
