@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/fatfreecrm/fat_free_crm.git
-  revision: a3b4fb3081ecc91cbf95bfb25c5061ede4b2fa7d
+  revision: fdaadc9da27aedef4acb9d8c6905dc5e4ae65a69
   branch: v0.24.x
   specs:
     fat_free_crm (0.24.2)
@@ -238,7 +238,6 @@ GEM
     paper_trail (15.1.0)
       activerecord (>= 6.1)
       request_store (~> 1.4)
-    pg (1.6.0-x86_64-linux)
     pp (0.6.2)
       prettyprint
     premailer (1.27.0)
@@ -391,7 +390,6 @@ DEPENDENCIES
   listen
   mutex_m
   observer
-  pg
   ransack_ui
   rspec-rails
   sprockets (~> 4.0)
